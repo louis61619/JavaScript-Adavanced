@@ -3,6 +3,7 @@ Function.prototype.myapply = function(thisArg, argArray) {
   var fn = this
 
   // 轉化為物件
+  //  thisArg = (thisArg !== undefined && thisArg !== null) ? Object(thisArg) : window
   thisArg = thisArg !== undefined && thisArg !== null && Object(thisArg) || window
 
   // 隱式綁定

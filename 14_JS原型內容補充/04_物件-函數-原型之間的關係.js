@@ -16,7 +16,11 @@ console.log(obj.__proto__)
 // Function.prototype = { constructor: Function }
 
 
-var Foo = new Function()
+// var Foo = new Function()
 function Foo() {
 
 }
+
+console.log(Foo.prototype === Foo.__proto__)
+console.log(Foo.prototype.constructor.prototype.constructor)
+console.log(Foo.__proto__.constructor)

@@ -9,11 +9,15 @@ class Shape {
 }
 
 class Rectangle extends Shape {
-
+  getArea() {
+    return 100
+  }
 }
 
 class Circle extends Shape {
-
+  getArea() {
+    return 200
+  }
 }
 
 var r = new Rectangle()

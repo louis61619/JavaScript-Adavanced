@@ -20,9 +20,9 @@ var p = new Person()
 calcArea(obj1)
 calcArea(p)
 
-function sum(m, n) {
-  return m + n
-}
+// function sum(m, n) {
+//   return m + n
+// }
 
-sum(20, 30)
-sum("abc", "vdd")
+// sum(20, 30)
+// sum("abc", "vdd")

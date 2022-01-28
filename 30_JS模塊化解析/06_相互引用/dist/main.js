@@ -1,0 +1,1 @@
+(()=>{var r={825:r=>{r.exports={name:"Louis"}}},e={};function o(t){var s=e[t];if(void 0!==s)return s.exports;var n=e[t]={exports:{}};return r[t](n,n.exports,o),n.exports}(()=>{"use strict";var r=o(825);console.log(26,r.name)})()})();

@@ -1,0 +1,17 @@
+{
+  "name": "@louis61619/my_util",
+  "version": "1.0.1",
+  "description": "123",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://xxx.github.com/my_util"
+  },
+  "homepage": "https://xxx.github.com/my_util",
+  "keywords": ["utils"],
+  "author": "louis61619",
+  "license": "ISC"
+}

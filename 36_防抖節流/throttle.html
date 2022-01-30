@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text">
+  <button>取消</button>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.2/underscore-umd-min.js"></script> -->
+  <!-- <script src="./02_debounce-v2-this-參數.js"></script> -->
+  <!-- <script src="./03_debounce-v3-立即執行.js"></script> -->
+  <!-- <script src="./04_debounce-v4-取消功能.js"></script> -->
+  <!-- <script src="./05_debounce-v5-函數返回值.js"></script> -->
+  <!-- <script src="./06_throttle-v1-基本實現.js"></script> -->
+  <!-- <script src="./07_throttle-v2-leading實現.js"></script> -->
+  <!-- <script src="./08_throttle-v3-trailing實現.js"></script> -->
+  <script src="./11_throttle-v6-函數返回值.js"></script>
+  <script>
+    const inputEl = document.querySelector('input')
+    let counter = 0
+    const inputChange = function (event) {
+      console.log(`發送了第${++counter}次網路請求`, event, this)
+      return 'aaaa'
+    }
+    // inputEl.oninput = _.debounce(inputChange, 1000)
+    const _throttle = throttle(inputChange, 2000, { 
+      leading: false, 
+      trailing: true,
+      resultCallback(res) {
+        console.log('resultCallback 的 result', res)
+      }
+    })
+    function tempFun(event) {
+      _throttle.apply(this, [event]).then(res => {
+        console.log('promise 的 result', res)
+      })
+    }
+    inputEl.oninput = tempFun
+
+    // inputEl.oninput = tempFun
+    const btn = document.querySelector('button')
+    btn.onclick = function() {
+      _throttle.cancel()
+    }
+
+  </script>
+</body>
+</html>

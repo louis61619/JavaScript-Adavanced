@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text">
+  <button>取消</button>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.2/underscore-umd-min.js"></script> -->
+  <!-- <script src="./02_debounce-v2-this-參數.js"></script> -->
+  <!-- <script src="./03_debounce-v3-立即執行.js"></script> -->
+  <!-- <script src="./04_debounce-v4-取消功能.js"></script> -->
+  <script src="./05_debounce-v5-函數返回值.js"></script>
+  <script>
+    const inputEl = document.querySelector('input')
+    let counter = 0
+    const inputChange = function (event) {
+      console.log(`發送了第${++counter}次網路請求`, event, this)
+      return 'aaaa'
+    }
+    // inputEl.oninput = _.debounce(inputChange, 1000)
+    // inputEl.oninput = _.throttle(inputChange, 1000)
+
+   
+
+    const debounceFun = debounce(inputChange, 3000, true, (res) => {
+      console.log('回調的 callback', res)
+    })
+
+    const tempFun = (event) => {
+      console.log(this)
+      debounceFun(event).then(res => {
+        console.log('promise 的 callback', res)
+      })
+    }
+
+    inputEl.oninput = tempFun
+
+    const btn = document.querySelector('button')
+    btn.onclick = function() {
+      debounceFun.cancel()
+    }
+
+  </script>
+</body>
+</html>
